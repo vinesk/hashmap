@@ -1,0 +1,18 @@
+{
+  "name": "hashmap",
+  "version": "1.0.0",
+  "description": "https://www.theodinproject.com/lessons/javascript-hashmap",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "keywords": [],
+  "author": "vinesk",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
