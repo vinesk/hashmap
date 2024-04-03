@@ -22,7 +22,7 @@ class HashMap {
   set(key, value) {
     const index = this.hash(key);
     let current = this.buckets[index].headNode;
-    while (current != null) {
+    while (current) {
       if (current.value.key === key) {
         current.value.value = value;
         return;
@@ -36,7 +36,7 @@ class HashMap {
   get(key) {
     const index = this.hash(key);
     let current = this.buckets[index].headNode;
-    while (current != null) {
+    while (current) {
       if (current.value.key === key) {
         return current.value.value;
       }
@@ -53,7 +53,7 @@ class HashMap {
     const index = this.hash(key);
     let current = this.buckets[index].headNode;
     let prev = null;
-    while (current != null) {
+    while (current) {
       if (current.value.key === key) {
         if (prev) {
           prev.next = current.next;
@@ -85,7 +85,7 @@ class HashMap {
     let keys = [];
     for (let i = 0; i < this.buckets.length; i++) {
       let current = this.buckets[i].headNode;
-      while (current != null) {
+      while (current) {
         keys.push(current.value.key);
         current = current.next;
       }
@@ -97,7 +97,7 @@ class HashMap {
     let values = [];
     for (let i = 0; i < this.buckets.length; i++) {
       let current = this.buckets[i].headNode;
-      while (current != null) {
+      while (current) {
         values.push(current.value.value);
         current = current.next;
       }
@@ -109,7 +109,7 @@ class HashMap {
     let entries = [];
     for (let i = 0; i < this.buckets.length; i++) {
       let current = this.buckets[i].headNode;
-      while (current != null) {
+      while (current) {
         entries.push([current.value.key, current.value.value]);
         current = current.next;
       }

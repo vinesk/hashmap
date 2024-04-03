@@ -22,7 +22,7 @@ class HashSet {
   add(key) {
     const index = this.hash(key);
     let current = this.buckets[index].headNode;
-    while (current != null) {
+    while (current) {
       if (current.value === key) {
         return;
       }
@@ -35,7 +35,7 @@ class HashSet {
   has(key) {
     const index = this.hash(key);
     let current = this.buckets[index].headNode;
-    while (current != null) {
+    while (current) {
       if (current.value === key) {
         return true;
       }
@@ -48,7 +48,7 @@ class HashSet {
     const index = this.hash(key);
     let current = this.buckets[index].headNode;
     let prev = null;
-    while (current != null) {
+    while (current) {
       if (current.value === key) {
         if (prev) {
           prev.next = current.next;
@@ -80,7 +80,7 @@ class HashSet {
     let keys = [];
     for (let i = 0; i < this.buckets.length; i++) {
       let current = this.buckets[i].headNode;
-      while (current != null) {
+      while (current) {
         keys.push(current.value);
         current = current.next;
       }

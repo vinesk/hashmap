@@ -2,7 +2,7 @@
   "name": "hashmap",
   "version": "1.0.0",
   "description": "https://www.theodinproject.com/lessons/javascript-hashmap",
-  "main": "index.js",
+  "main": "./src/HashMap.js",
   "scripts": {
     "test": "jest"
   },
