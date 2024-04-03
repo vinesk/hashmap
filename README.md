@@ -1,6 +1,6 @@
 # HashMap project
 
-This project implements basic JavaScript data structures, including `Node`, `LinkedList`, and `HashMap` (click [here](https://www.theodinproject.com/lessons/javascript-hashmap) for more details).
+This project implements basic JavaScript data structures, including `Node`, `LinkedList`, `HashMap` and `HashSet` (click [here](https://www.theodinproject.com/lessons/javascript-hashmap) for more details).
 
 ## Project structure
 

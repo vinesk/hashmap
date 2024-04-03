@@ -1,6 +1,6 @@
 const LinkedList = require('./LinkedList');
 
-class HashMap {
+class HashSet {
   constructor(size = 20) {
     this.buckets = new Array(size);
     this.size = 0;
@@ -19,34 +19,29 @@ class HashMap {
     return Math.abs(hashCode);
   }
 
-  set(key, value) {
+  add(key) {
     const index = this.hash(key);
     let current = this.buckets[index].headNode;
     while (current != null) {
-      if (current.value.key === key) {
-        current.value.value = value;
+      if (current.value === key) {
         return;
       }
       current = current.next;
     }
-    this.buckets[index].append({ key, value });
+    this.buckets[index].append(key);
     this.size++;
   }
 
-  get(key) {
+  has(key) {
     const index = this.hash(key);
     let current = this.buckets[index].headNode;
     while (current != null) {
-      if (current.value.key === key) {
-        return current.value.value;
+      if (current.value === key) {
+        return true;
       }
       current = current.next;
     }
-    return null;
-  }
-
-  has(key) {
-    return this.get(key) !== null;
+    return false;
   }
 
   remove(key) {
@@ -54,7 +49,7 @@ class HashMap {
     let current = this.buckets[index].headNode;
     let prev = null;
     while (current != null) {
-      if (current.value.key === key) {
+      if (current.value === key) {
         if (prev) {
           prev.next = current.next;
         } else {
@@ -86,36 +81,12 @@ class HashMap {
     for (let i = 0; i < this.buckets.length; i++) {
       let current = this.buckets[i].headNode;
       while (current != null) {
-        keys.push(current.value.key);
+        keys.push(current.value);
         current = current.next;
       }
     }
     return keys;
   }
-
-  values() {
-    let values = [];
-    for (let i = 0; i < this.buckets.length; i++) {
-      let current = this.buckets[i].headNode;
-      while (current != null) {
-        values.push(current.value.value);
-        current = current.next;
-      }
-    }
-    return values;
-  }
-
-  entries() {
-    let entries = [];
-    for (let i = 0; i < this.buckets.length; i++) {
-      let current = this.buckets[i].headNode;
-      while (current != null) {
-        entries.push([current.value.key, current.value.value]);
-        current = current.next;
-      }
-    }
-    return entries;
-  }
 }
 
-module.exports = HashMap;
+module.exports = HashSet;

@@ -1,18 +1,43 @@
 const HashMap = require('../src/HashMap');
 
 describe('HashMap', () => {
-  it('should set and get a value', () => {
-    const hashMap = new HashMap();
-    hashMap.set('key1', 'value1');
-    expect(hashMap.get('key1')).toBe('value1');
+  let hashMap;
+
+  beforeEach(() => {
+    hashMap = new HashMap();
   });
 
-  it('should handle collisions', () => {
-    const hashMap = new HashMap(1);
+  test('length returns the number of stored keys in the hash map', () => {
     hashMap.set('key1', 'value1');
     hashMap.set('key2', 'value2');
+    expect(hashMap.length()).toBe(2);
+  });
 
-    expect(hashMap.get('key1')).toBe('value1');
-    expect(hashMap.get('key2')).toBe('value2');
+  test('clear removes all entries in the hash map', () => {
+    hashMap.set('key1', 'value1');
+    hashMap.set('key2', 'value2');
+    hashMap.clear();
+    expect(hashMap.length()).toBe(0);
+  });
+
+  test('keys returns an array containing all the keys inside the hash map', () => {
+    hashMap.set('key1', 'value1');
+    hashMap.set('key2', 'value2');
+    expect(hashMap.keys()).toEqual(['key1', 'key2']);
+  });
+
+  test('values returns an array containing all the values inside the hash map', () => {
+    hashMap.set('key1', 'value1');
+    hashMap.set('key2', 'value2');
+    expect(hashMap.values()).toEqual(['value1', 'value2']);
+  });
+
+  test('entries returns an array containing each key, value pair', () => {
+    hashMap.set('key1', 'value1');
+    hashMap.set('key2', 'value2');
+    expect(hashMap.entries()).toEqual([
+      ['key1', 'value1'],
+      ['key2', 'value2'],
+    ]);
   });
 });

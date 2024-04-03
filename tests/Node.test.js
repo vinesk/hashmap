@@ -1,9 +1,9 @@
 const Node = require('../src/Node');
 
 describe('Node', () => {
-  it('should create a node with value and next', () => {
-    const node = new Node(5);
-    expect(node.value).toBe(5);
-    expect(node.next).toBeNull();
+  test('constructor sets value and next to null', () => {
+    const node = new Node('test');
+    expect(node.value).toBe('test');
+    expect(node.next).toBe(null);
   });
 });
